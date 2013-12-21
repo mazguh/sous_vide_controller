@@ -1,3 +1,6 @@
 [submodule "lib/Arduino-Temperature-Control-Library"]
 	path = lib/Arduino-Temperature-Control-Library
 	url = git@github.com:milesburton/Arduino-Temperature-Control-Library.git
+[submodule "lib/Timer"]
+	path = lib/Timer
+	url = git@github.com:JChristensen/Timer.git
