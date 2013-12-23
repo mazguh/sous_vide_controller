@@ -4,7 +4,6 @@
 #include <DallasTemperature.h>
 #include <Timer.h>
 #include "pid.h"
-#include <PWM.h>
 
 // Data wire is plugged into port 2 on the Arduino
 #define ONE_WIRE_BUS 6
@@ -31,11 +30,7 @@ void temperatureHandler()
   int pwm;
   sensors.requestTemperatures();
   temp = sensors.getTempC(temperatureSensor);
-  Serial.print("Temperature is: ");
-  Serial.println(temp);
   pwm = pid.update(temp);
-  Serial.print("PWM is: ");
-  Serial.println(pwm);
   analogWrite(PWM_PIN, pwm);
 }
 
@@ -53,11 +48,11 @@ void setup(void)
   Serial.println(sensors.getDeviceCount());
   sensors.getAddress(temperatureSensor, 0);
 
-  pid.setKp(10);
-  pid.setKi(0.00001);
-  pid.setKd(30000);
+  pid.setKp(42);
+  pid.setKi(0.00008);
+  pid.setKd(300000);
 
-  pid.setTarget(60);
+  pid.setTarget(68.4);
 
   temperatureTimer = t.every(2000, temperatureHandler);
 }

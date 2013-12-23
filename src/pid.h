@@ -4,19 +4,19 @@
 class Pid
 {
 public:
-	Pid();
-	void setKp(float);
-	void setKi(float);
-	void setKd(float);
-	int  update(float);
-	void setTarget(float);
+    Pid();
+    void setKp(float);
+    void setKi(float);
+    void setKd(float);
+    int  update(float);
+    void setTarget(float);
 
 private:
-	float last_error;
-	float integral;
-	float target;
-	float Kp, Ki, Kd;
-	unsigned long time;
+    float last_error;
+    float integral;
+    float target;
+    float Kp, Ki, Kd;
+    unsigned long time;
 };
 
 
